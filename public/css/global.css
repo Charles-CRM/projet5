@@ -1,0 +1,44 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+    margin-bottom: 0px;
+}
+
+main {
+    position: relative;
+}
+
+.square {
+    width: 100%;
+    padding-top: 100%;
+}
+
+.badge {
+    margin: 6px;
+    border: 1px #E0E0E0 solid;
+    font-weight: normal;
+}
+
+.red-fruits-badge {
+    background-color: #B4013B;
+    color: white;
+}
+
+.vanilla-badge {
+    background-color: #FFEDB5;
+    color: black;
+}

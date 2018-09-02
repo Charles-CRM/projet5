@@ -1,0 +1,122 @@
+h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 50px 0px 30px 0px;
+}
+
+.carousel {
+    width: 100%;
+    margin: 0px auto 60px auto;
+    border: 8px black solid;
+}
+
+#instructionsSection {
+    margin-bottom: 50px;
+}
+
+#recipeInfosSection {
+    margin: 10px 0px;
+}
+
+.ingredientsArea {
+    border: 5px black double;
+}
+
+.instructionsBlockNumber {
+    border-right: 1px #BBB solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.instructionsBlockNumber > span {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h5 {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+h6 {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.col-ingredients > ul {
+    list-style-type: disc;
+    margin-left: 30px;
+}
+
+.col-instructions > ul {
+    list-style-type: lower-alpha;
+    margin-left: 30px;
+}
+
+.col-instructions > ul > li {
+    margin: 2px 0px;
+}
+
+.ingredientsArea .col-ingredients {
+    margin-bottom: 20px;
+}
+
+.instructionsArea .col-ingredients {
+    border-top: 1px #BBB solid;
+    border-bottom: 1px #BBB solid;
+    padding: 10px 20px;
+}
+
+.instructionsArea > .row {
+    margin-left: 30px;
+}
+
+.instructionsBlock {
+    margin-bottom: 30px;
+    border: 2px black solid;
+}
+
+.instructionsBlock:last-of-type {
+    margin-bottom: initial;
+}
+
+.ingredientsArea .col-ingredients {
+    margin-bottom: 20px;
+    padding: 10px 5px;
+}
+
+.col-instructions > *, .col-ingredients > * {
+    margin-left: 10px;
+}
+
+.instructionsArea .col-instructions {
+    padding: 10px 10px;
+}
+
+
+
+/********************************************************************************
+
+                                MEDIA QUERIES
+
+*********************************************************************************/
+
+
+
+/*@media all and (max-width: 768px) {
+    .row {
+        display: initial;
+    }
+    
+    .instructionsBlockNumber {
+        border-right: none;
+        padding: 5px 0px;
+    }
+}*/

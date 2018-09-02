@@ -1,0 +1,275 @@
+#searchBarSection {
+    position: relative;
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#searchBarSection > img {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+#searchBar {
+    height: 50px;
+    border-radius: 25px;
+    box-sizing: border-box;
+    border: 1px black solid;
+    width: 100%;
+}
+
+#searchBarContainer {
+    z-index: 1;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+#searchBarContainer label {
+    text-indent: 20px;
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+#searchBarContainer input {
+    text-indent: 20px;
+}
+
+#searchBarContainer a {
+    text-align: right;
+    margin-top: 5px;
+    font-size: 1rem;
+    text-decoration: underline;
+    margin-right: 20px;
+}
+
+article {
+    height: 100%;
+    width: 100%;
+}
+
+.titleBanner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    border-bottom: 1px rgba(180, 1, 59, 0.3) solid;
+    background-color: rgba(180, 1, 59, 0.05);
+}
+
+.titleBanner h3 {
+    text-indent: 20px;
+    font-size: 1.5rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.socialNetworksButtons {
+    display: flex;
+    list-style-type: none;
+    font-size: 1.2rem;
+    margin-bottom: 0px;
+}
+
+.socialNetworksButtons i {
+    margin-right: 10px;
+}
+
+.highlightedRecipe h3 {
+    font-size: 1rem;
+    margin: 0px;
+    text-align: center;
+    width: 100%;
+    color: #EEE;
+}
+
+#recipeOfTheDayContent {
+    display: flex;
+    position: relative;
+}
+
+#recipeOfTheDayContent .imageContainer {
+    width: 50%;
+    position: relative;
+}
+
+#recipeOfTheDayContent img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.recipeInfos {
+    box-sizing: border-box;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: rgba(180, 1, 59, 0.02);
+    border-left: 1px rgba(180, 1, 59, 0.3) solid;
+}
+
+.recipeInfos h3 {
+    font-size: 1.2rem;
+}
+
+.difficultyAndNoteContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.difficultyAndNoteContainer i {
+    font-size: 0.9rem;
+}
+
+.label {
+    font-weight: bold;
+    color: black;
+    font-size: 0.9rem;
+}
+
+.flavoursLabel {
+    text-align: left;
+}
+
+.flavours {
+    display: flex;
+    align-items: flex-start;
+}
+
+.recipeLinkContainer {
+    padding: 20px;
+}
+
+.recipeOfTheDayLinkContainer {
+    position: relative;
+}
+
+.recipeOfTheDayLink {
+    border: 6px #B4013B double;
+}
+
+.recipeLinkSizerContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.recipeLinkSizer {
+    width: 100%;
+    position: relative;
+}
+
+.highlightedRecipeLink, .recipeOfTheDayLink {
+    display: block; 
+}
+
+.highlightedRecipeLink {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 5px black double;
+}
+
+.attachedToPreviousElement {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#highlightedRecipesSection > .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.highlightedRecipe img {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    height: 100%;
+}
+
+.titleBox {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 25px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+}
+
+.times {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.times > li {
+    padding: 3px 5px;
+    background-color: #BBB;
+    border-radius: 2px;
+    margin: 6px;
+    font-size: 0.8rem;
+}
+
+.recipeInfos > h3 {
+    flex-grow: 1;
+}
+
+.recipeInfos > div:nth-child(2) {
+    flex-grow: 2;
+    text-align: left;
+}
+
+.recipeInfos > ul:nth-child(3) {
+    flex-grow: 1;
+    margin-bottom: 0px;
+}
+
+.recipeInfos > div:nth-child(4) {
+    flex-grow: 1;
+}
+
+
+
+/********************************************************************************
+
+                                MEDIA QUERIES
+
+*********************************************************************************/
+
+
+
+/*@media all and (max-width: 990px) {
+    #highlightedRecipesSection > .row {
+        display: initial;
+    }
+}*/
+
