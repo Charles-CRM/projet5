@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class IngredientInstruction extends Model
+class IngredientPreparation extends Model
 {
-    public $table = 'ingredient_instruction';
+    public $table = 'ingredient_preparation';
     public $timestamps = false;
 }

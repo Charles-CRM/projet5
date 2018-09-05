@@ -13,7 +13,7 @@ $factory->define(App\Recipe::class, function (Faker $faker) {
     
     return [
         
-        'title' => $faker->sentence(6, true),
+        'title' => $faker->sentence(4, true),
         'portions_nbr' => $faker->numberBetween(1, 8) * 2,
         'rating' => $faker->randomFloat(1, 0, 5),
         'votes_nbr' => $faker->numberBetween(0, 1000),

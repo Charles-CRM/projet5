@@ -33,4 +33,8 @@ class Recipe extends Model
     public function tags() {
         return $this->belongsToMany('App\Tag');
     }
+    
+    public function ingredients() {
+        return $this->hasManyThrough('App\Ingredient', 'App\Preparation');
+    }
 }

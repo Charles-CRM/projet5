@@ -14,7 +14,7 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        //
+        return view('indexRecipes', ['recipes' => Recipe::with(['photos.file_path', 'title'])->all()]);
     }
 
     /**
@@ -44,9 +44,9 @@ class RecipeController extends Controller
      * @param  \App\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function show(Recipe $recipe)
+    public function show(int $id)
     {
-        //
+        return view('showRecipe', ['recipe' => Recipe::with(['preparations.instructions', 'preparations.ingredients'])->find($id)]);
     }
 
     /**

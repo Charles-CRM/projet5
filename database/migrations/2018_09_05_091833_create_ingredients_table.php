@@ -19,9 +19,9 @@ class CreateIngredientsTable extends Migration
             $table->timestamps();
         });
         
-        Schema::create('ingredient_instruction', function (Blueprint $table) {
-            $table->integer('ingredient_id');
-            $table->integer('instruction_id');
+        Schema::create('ingredient_preparation', function (Blueprint $table) {
+            $table->integer('ingredient_id')->unsigned();
+            $table->integer('preparation_id')->unsigned();
         });
     }
 
@@ -33,6 +33,6 @@ class CreateIngredientsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('ingredients');
-        Schema::dropIfExists('ingredient_instruction');
+        Schema::dropIfExists('ingredient_preparation');
     }
 }

@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         $tags = factory(App\Tag::class, 25)->create();
         $recipe_tag = factory(App\RecipeTag::class, 50)->create();
         $ingredients = factory(App\Ingredient::class, 25)->create();
-        $ingredient_instruction = factory(App\IngredientInstruction::class, 500)->create();
+        $ingredient_preparation = factory(App\IngredientPreparation::class, 300)->create();
         
     }
 }

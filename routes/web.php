@@ -28,8 +28,13 @@ Route::get('/login', ['as' => 'login', function () {
 
 
 
-// Page d'essais
+// Pages d'essais
 
 Route::get('/essai', function () {
     return view('essai');
 })->name('essai');
+
+Route::get('/test', 'RecipeController@index')->name('testindexrecipes');
+Route::get('/test/{recipe_id}', 'RecipeController@show')->name('testshowrecipe');
+
+Route::get('/ingredient/{ingredient_id}', 'IngredientController@show')->name('testshowingredient');

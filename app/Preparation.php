@@ -13,4 +13,8 @@ class Preparation extends Model
     public function instructions() {
         return $this->hasMany('App\Instruction');
     }
+    
+    public function ingredients() {
+        return $this->belongsToMany('App\Ingredient');
+    }
 }
