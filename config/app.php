@@ -210,5 +210,10 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+    
+    
+    
+    
+    'faker_locale' => 'fr_Rr',
 
 ];

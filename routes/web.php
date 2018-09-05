@@ -25,3 +25,11 @@ Route::get('/recipe/{title}', function ($title) {
 Route::get('/login', ['as' => 'login', function () {
     return view('login');
 }])->name('login');
+
+
+
+// Page d'essais
+
+Route::get('/essai', function () {
+    return view('essai');
+})->name('essai');
