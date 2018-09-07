@@ -36,11 +36,9 @@
         </div>
         <nav id='bottomMenu'>
             <ul>
-                <li><a href='/category/entremets' target='_self'>Entremets</a></li>
-                <li><a href='/category/gateaux' target='_self'>Gâteaux</a></li>
-                <li><a href='/category/tartes' target='_self'>Tartes</a></li>
-                <li><a href='/category/verrines' target='_self'>Verrines</a></li>
-                <li><a href='/category/viennoiseries' target='_self'>Viennoiseries</a></li>
+                <?php foreach($categories as $category) { ?>
+                    <li><a href='/category/{{$category->id}}' target='_self'>{{$category->name}}</a></li>
+                <?php } ?>
             </ul>
         </nav>
     </header>

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'HomepageController@index')->name('homepage');
-Route::get('/category/{category}', 'HomepageController@category')->name('category');
+Route::get('/category/{category_id}', 'CategoryController@show')->name('category');
 
 Route::get('/user', ['as' => 'user', function () {
     return 'Ici se trouvera la page du compte utilisateur.';

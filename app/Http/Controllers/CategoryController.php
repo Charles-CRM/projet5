@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Recipe;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -44,9 +45,20 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(int $id)
     {
-        //
+        $category = Category::find($id);
+        
+        $categories[] = Category::find(7);
+        $categories[] = Category::find(5);
+        $categories[] = Category::find(6);
+        $categories[] = Category::find(4);
+        $categories[] = Category::find(9);
+        
+        $recipes = Category::find($id)->recipes;
+        
+        $title = $category->name . ' - Site de recettes';
+        return view('homepage', ['title' => $title, 'categories' => $categories, 'recipes' => $recipes]);
     }
 
     /**

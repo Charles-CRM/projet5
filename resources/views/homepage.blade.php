@@ -50,6 +50,11 @@
                 </a>
             </div>
             
+            <?php
+                $i = 0;
+                foreach($recipes as $recipe) {
+            ?>
+            
             <div class="recipeLinkContainer col-lg-3 col-md-4 col-sm-6">
                 <div class="recipeLinkSizerContainer">
                     <div class="recipeLinkSizer square">
@@ -62,6 +67,8 @@
                     </div>
                 </div>
             </div>
+            
+            <?php if($i == 0) { ?>
             
             <!-- Recipe of the Day : only for large screens -->
             <div class="recipeLinkContainer d-none d-lg-block col-lg-6 recipeOfTheDayLinkContainer">
@@ -97,7 +104,12 @@
                 </a>
             </div>
             
-            <div class="recipeLinkContainer col-lg-3 col-md-4 col-sm-6">
+            <?php
+                }
+                $i++;}
+            ?>
+            
+            <!--<div class="recipeLinkContainer col-lg-3 col-md-4 col-sm-6">
                 <div class="recipeLinkSizerContainer">
                     <div class="recipeLinkSizer square">
                         <a href='/recipe/gateau-suedois-au-chocolat' target='_self' class="highlightedRecipeLink attachedToPreviousElement">
@@ -109,6 +121,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="recipeLinkContainer col-lg-3 col-md-4 col-sm-6">
                 <div class="recipeLinkSizerContainer">
                     <div class="recipeLinkSizer square">
@@ -228,7 +241,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
         </div>
    </section>
