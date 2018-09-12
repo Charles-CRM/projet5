@@ -1,8 +1,8 @@
-@extends('default')
+@extends('layout')
 
 @section('mainContent')
 <div class="container">
-    <h2 id='recipeTitle'>Petits gâteaux sablés à l'amande</h2>
+    <h2 id='recipeTitle'>{{$recipe->title}}</h2>
   
     <section id='carouselSection'>
         <div class="row">
@@ -10,28 +10,24 @@
 
                 <div id="carousel" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel" data-slide-to="1"></li>
-                        <li data-target="#carousel" data-slide-to="2"></li>
-                        <li data-target="#carousel" data-slide-to="3"></li>
-                        <li data-target="#carousel" data-slide-to="4"></li>
+                        @foreach ($recipe->photos as $photo)
+                        @if ($loop->first)
+                        <li data-target="#carousel" data-slide-to="{{$loop->index}}" class="active"></li>
+                        @endif
+                        <li data-target="#carousel" data-slide-to="{{$loop->index}}"></li>
+                        @endforeach
                     </ol>
                     <div class="carousel-inner">
+                        @foreach ($recipe->photos as $photo)
+                        @if ($loop->first)
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="/images/sablés-aux-amandes-1.jpg" alt="sablés aux amandes 1">
+                            <img class="d-block w-100" src="{{$photo->file_path}}" alt="Photo de {{$recipe->title}} {{$loop->iteration}}">
                         </div>
+                        @endif
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="/images/sablés-aux-amandes-2.jpg" alt="sablés aux amandes 2">
+                            <img class="d-block w-100" src="{{$photo->file_path}}" alt="Photo de {{$recipe->title}} {{$loop->iteration}}">
                         </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="/images/sablés-aux-amandes-3.jpg" alt="sablés aux amandes 3">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="/images/sablés-aux-amandes-4.jpg" alt="sablés aux amandes 4">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="/images/sablés-aux-amandes-5.jpg" alt="sablés aux amandes 5">
-                        </div>
+                        @endforeach
                     </div>
                     <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -48,116 +44,113 @@
     </section>
 
    
-   <section id='recipeInfosSection'>
-       <span>4/5 : <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+    <section id='recipeInfosSection'>
+        <span>Auteur : {{$recipe->author->name}}<br /></span>
+        <span>Mise à jour le {{$recipe->updated_at}}<br /></span>
+        <span>Catégorie : {{$recipe->category->name}}<br /></span>
+        <span>Recette prévue pour {{$recipe->portions_nbr}} portions.<br /></span>
+        @if ($recipe->preparation_time)
+        <span>Préparation : {{$recipe->preparation_time}}<br /></span>
+        @endif
+        @if ($recipe->rest_time)
+        <span>Repos : {{$recipe->rest_time}}<br /></span>
+        @endif
+        @if ($recipe->cooking_time)
+        <span>Cuisson : {{$recipe->cooking_time}}<br /></span>
+        @endif
+        <span>Saveurs associées :<br /></span>
+        <ul>
+            @foreach ($recipe->flavours as $flavour)
+                <li>{{$flavour->name}}</li>
+            @endforeach
+        </ul>
+        <span>Mots-clefs associés :<br /></span>
+        <ul>
+            @foreach ($recipe->tags as $tag)
+                <li>{{$tag->name}}</li>
+            @endforeach
+        </ul>
+        <span>
+            Note : {{$recipe->rating}}/5 
+            @for ($i = 1; $i <= 5; $i++)
+            @if ($i <= $recipe->rating)
+            <i class="fas fa-star"></i>
+            @else
+            <i class="far fa-star"></i>
+            @endif
+            @endfor
+             {{$recipe->votes_nbr}} avis
+        </span>
+        <span>
+            Difficulté : {{$recipe->difficulty}}/5 
+            @for ($i = 1; $i <= 5; $i++)
+            @if ($i <= $recipe->difficulty)
+            <i class="fas fa-circle"></i>
+            @else
+            <i class="far fa-circle"></i>
+            @endif
+            @endfor
+        </span>
                         
    </section>
    <section id='instructionsSection'>
 
-
             <div class="row no-gutters">
                 <div class="col-sm-3 d-none d-sm-block ingredientsArea">
                     <div class="row no-gutters">
+                        @foreach ($recipe->preparations as $preparation)
                         <div class="col-12 col-ingredients">
-                            <h6>Préparation 1</h6>
+                            <h6>{{$preparation->name}}</h6>
                             <ul>
-                                <li>ingrédient 1</li>
-                                <li>ingrédient 2</li>
-                                <li>ingrédient 3</li>
-                                <li>ingrédient 4</li>
+                                @foreach ($preparation->ingredients as $ingredient)
+                                <li>{{$ingredient->name}}</li>
+                                @endforeach
                             </ul>
                         </div>
-                        <div class="col-12 col-ingredients">
-                            <h6>Préparation 2</h6>
-                            <ul>
-                                <li>ingrédient 1</li>
-                                <li>ingrédient 2</li>
-                                <li>ingrédient 3</li>
-                                <li>ingrédient 4</li>
-                            </ul>
-                        </div>
-                        <div class="col-12 col-ingredients">
-                            <h6>Préparation 3</h6>
-                            <ul>
-                                <li>ingrédient 1</li>
-                                <li>ingrédient 2</li>
-                                <li>ingrédient 3</li>
-                                <li>ingrédient 4</li>
-                            </ul>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 
                 <div class="col-sm-9 col-12 instructionsArea">
                     <div class="row no-gutters">
+                        @foreach ($recipe->preparations as $preparation)
                         <div class="col-12 row no-gutters instructionsBlock">
-                            <div class="col-sm-1 instructionsBlockNumber"><span>1</span></div>
+                            <div class="col-sm-1 instructionsBlockNumber"><span>{{$loop->iteration}}</span></div>
                             <div class="col-sm-12 d-block d-sm-none col-ingredients">
-                                <h6>Préparation 1</h6>
                                 <ul>
-                                    <li>ingrédient 1</li>
-                                    <li>ingrédient 2</li>
-                                    <li>ingrédient 3</li>
-                                    <li>ingrédient 4</li>
+                                    @foreach ($preparation->ingredients as $ingredient)
+                                    <li>{{$ingredient->name}}</li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <div class="col-sm-11 col-instructions">
-                                <h5>Faire la préparation 1</h5>
+                                <h5>{{$preparation->name}}</h5>
                                 <ul class="instructions">
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu libero venenatis enim lacinia condimentum.</li>
-                                    <li>Maecenas tristique metus nisl. Quisque at justo vel dolor eleifend pretium et vel orci. </li>
-                                    <li>Mauris sed mi congue, iaculis leo nec, mollis urna.</li>
-                                    <li>Mauris semper consectetur volutpat. Donec et porta augue. Praesent pulvinar arcu ac elit facilisis condimentum.</li>
+                                    @foreach ($preparation->instructions as $instruction)
+                                    <li>{{$instruction->text}}</li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-12 row no-gutters instructionsBlock">
-                            <div class="col-sm-1 instructionsBlockNumber"><span>2</span></div>
-                            <div class="col-sm-12 d-block d-sm-none col-ingredients">
-                                <h6>Préparation 2</h6>
-                                <ul>
-                                    <li>ingrédient 1</li>
-                                    <li>ingrédient 2</li>
-                                    <li>ingrédient 3</li>
-                                    <li>ingrédient 4</li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-11 col-instructions">
-                                <h5>Faire la préparation 2</h5>
-                                <ul class="instructions">
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu libero venenatis enim lacinia condimentum.</li>
-                                    <li>Maecenas tristique metus nisl. Quisque at justo vel dolor eleifend pretium et vel orci. </li>
-                                    <li>Mauris sed mi congue, iaculis leo nec, mollis urna.</li>
-                                    <li>Mauris semper consectetur volutpat. Donec et porta augue. Praesent pulvinar arcu ac elit facilisis condimentum.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-12 row no-gutters instructionsBlock">
-                            <div class="col-sm-1 instructionsBlockNumber"><span>3</span></div>
-                            <div class="col-sm-12 d-block d-sm-none col-ingredients">
-                                <h6>Préparation 3</h6>
-                                <ul>
-                                    <li>ingrédient 1</li>
-                                    <li>ingrédient 2</li>
-                                    <li>ingrédient 3</li>
-                                    <li>ingrédient 4</li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-11 col-instructions">
-                                <h5>Faire la préparation 3</h5>
-                                <ul class="instructions">
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu libero venenatis enim lacinia condimentum.</li>
-                                    <li>Maecenas tristique metus nisl. Quisque at justo vel dolor eleifend pretium et vel orci. </li>
-                                    <li>Mauris sed mi congue, iaculis leo nec, mollis urna.</li>
-                                    <li>Mauris semper consectetur volutpat. Donec et porta augue. Praesent pulvinar arcu ac elit facilisis condimentum.</li>
-                                </ul>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
    
-   </section>
+    </section>
+    <section id="commentsSection">
+        <h3>Commentaires</h3>
+        <div class="row no-gutters">
+            @foreach ($recipe->comments as $comment)
+            <div class="col-12 comment-block">
+                <div class="comment-block-content">
+                    <span class="comment-infos"><span class="comment-author">{{$comment->author->name}}</span><span class="comment-date">le {{$comment->created_at}}</span><span class="comment-votes"><span class="comment-votes-up">{{$comment->votes_up}} <i class="far fa-thumbs-up"></i></span><span class="comment-votes-down"><i class="far fa-thumbs-down"></i> {{$comment->votes_down}}</span></span></span>
+                    <span class="comment">{{$comment->message}}</span>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </section>
 </div>
 
 @endsection

@@ -16,11 +16,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     
     <link rel="stylesheet" href="/css/global.css" />
-    <link rel="stylesheet" href="/css/default.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
     <link rel="stylesheet" href="/css/homepage.css" />
     <link rel="stylesheet" href="/css/recipe.css" />
     
-    <title>{{ $title }}</title>
+    <title>{{ $layout['title'] }}</title>
 </head>
 
 
@@ -36,9 +36,9 @@
         </div>
         <nav id='bottomMenu'>
             <ul>
-                <?php foreach($categories as $category) { ?>
+                @foreach ($layout['categories'] as $category)
                     <li><a href='/category/{{$category->id}}' target='_self'>{{$category->name}}</a></li>
-                <?php } ?>
+                @endforeach
             </ul>
         </nav>
     </header>

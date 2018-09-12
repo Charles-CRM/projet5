@@ -16,7 +16,6 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->text('message');
-            $table->dateTimeTz('date');
             $table->mediumInteger('votes_up')->unsigned();
             $table->mediumInteger('votes_down')->unsigned();
             $table->integer('recipe_id')->unsigned();

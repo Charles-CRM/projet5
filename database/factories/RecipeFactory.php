@@ -4,6 +4,8 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Recipe::class, function (Faker $faker) {
     
+    $title = $faker->sentence(4, true);
+    $title = substr($title, 0, strlen($title) - 1);
     
     $rest_time = 0;
     $is_resting = $faker->boolean(20);
@@ -13,7 +15,7 @@ $factory->define(App\Recipe::class, function (Faker $faker) {
     
     return [
         
-        'title' => $faker->sentence(4, true),
+        'title' => $title,
         'portions_nbr' => $faker->numberBetween(1, 8) * 2,
         'rating' => $faker->randomFloat(1, 0, 5),
         'votes_nbr' => $faker->numberBetween(0, 1000),

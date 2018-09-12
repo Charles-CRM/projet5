@@ -15,7 +15,7 @@ class CreatePreparationsTable extends Migration
     {
         Schema::create('preparations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
+            $table->string('name');
             $table->integer('recipe_id')->unsigned();
             $table->timestamps();
         });

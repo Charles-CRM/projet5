@@ -14,7 +14,7 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        return view('indexRecipes', ['recipes' => Recipe::with(['photos.file_path', 'title'])->all()]);
+
     }
 
     /**
@@ -46,7 +46,10 @@ class RecipeController extends Controller
      */
     public function show(int $id)
     {
-        return view('showRecipe', ['recipe' => Recipe::with(['preparations.instructions', 'preparations.ingredients'])->find($id)]);
+        $recipe = Recipe::with(['preparations.instructions', 'preparations.ingredients'])->find($id);
+        
+        $layout = layoutController::show($recipe->title);
+        return view('recipe', ['layout' => $layout, 'recipe' => $recipe]);
     }
 
     /**
