@@ -57,11 +57,9 @@
                     <div class="recipeLinkSizer square">
                         <a href="{{route('recipe', ['recipe_id' => $recipe->id])}}" target='_self' class="highlightedRecipeLink attachedToPreviousElement">
                             <article class='highlightedRecipe'>
-                                @foreach ($recipe->photos as $photo)
-                                @if ($loop->first)
-                                <img src='{{$photo->file_path}}' alt='{{$recipe->title}}' />
-                                @endif
-                                @endforeach
+
+                                <img src='{{$recipe->first_photo}}' alt='{{$recipe->title}}' />
+
                                 <div class="titleBox"><h3>{{$recipe->title}}</h3></div>
                             </article>
                         </a>

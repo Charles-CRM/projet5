@@ -14,9 +14,9 @@
 Route::get('/', 'homepageController@index')->name('homepage');
 Route::get('/category/{category_id}', 'CategoryController@show')->name('category');
 
-Route::get('/user', ['as' => 'user', function () {
+/*Route::get('/user', ['as' => 'user', function () {
     return 'Ici se trouvera la page du compte utilisateur.';
-}])->name('user');
+}])->name('user');*/
 
 Route::get('/recette/{recipe_id}', 'RecipeController@show')->name('recipe');
 
@@ -33,3 +33,18 @@ Route::get('/essai', function () {
 })->name('essai');
 
 Route::get('/ingredient/{ingredient_id}', 'IngredientController@show')->name('testshowingredient');
+Route::post('/test/nouvelle_recette', 'RecipeController@create')->name('essaicreationrecette');
+
+
+
+
+
+
+
+Auth::routes();
+
+
+Route::middleware('auth')->group(function() {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::post('/test/nouvelle_recette', 'RecipeController@create')->name('essaicreationrecette');
+});

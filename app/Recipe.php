@@ -7,6 +7,10 @@ use Carbon\Carbon;
 
 class Recipe extends Model
 {
+    protected $fillable = ['title', ];
+    
+        
+        
     public function category() {
         return $this->belongsTo('App\Category');
     }
@@ -38,13 +42,7 @@ class Recipe extends Model
     public function ingredients() {
         return $this->hasManyThrough('App\Ingredient', 'App\Preparation');
     }
-    
-    
-    // ATTENTION : Fonction non-utilisée.
-    public function first_photo() {
-        $photo = $this->photos()->first();
-        return $photo->file_path;
-    }
+
     
     // Custom accessors
     
@@ -70,6 +68,14 @@ class Recipe extends Model
         return $this->displayHours($time);
     }
     
+    public function getFirstPhotoAttribute() {
+        $photo = $this->photos->first();
+        $file_path = "/images/no-photo.png";
+        if($photo) {
+            $file_path = $photo->file_path;
+        }
+        return $file_path;
+    }
     
     
     // Custom functions
@@ -84,6 +90,4 @@ class Recipe extends Model
         }
         return $time;
     }
-    
-    
 }

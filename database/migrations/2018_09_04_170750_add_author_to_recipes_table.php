@@ -14,7 +14,7 @@ class AddAuthorToRecipesTable extends Migration
     public function up()
     {
         Schema::table('recipes', function (Blueprint $table) {
-            $table->integer('author_id')->unsigned();
+            $table->integer('author_id')->unsigned()->default(0);
         });
     }
 

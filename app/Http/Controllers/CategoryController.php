@@ -55,10 +55,23 @@ class CategoryController extends Controller
         $categories[] = Category::find(4);
         $categories[] = Category::find(9);
         
+        
+        
+        
+        
+        $layout = layoutController::show('Accueil');
+        
+        
+        
+        
+        
+        
+        
+        
         $recipes = Category::find($id)->recipes;
         
         $title = $category->name . ' - Site de recettes';
-        return view('homepage', ['title' => $title, 'categories' => $categories, 'recipes' => $recipes]);
+        return view('homepage', ['layout' => $layout, 'categories' => $categories, 'recipes' => $recipes]);
     }
 
     /**

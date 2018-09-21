@@ -125,11 +125,9 @@
                             </div>
                             <div class="col-sm-11 col-instructions">
                                 <h5>{{$preparation->name}}</h5>
-                                <ul class="instructions">
-                                    @foreach ($preparation->instructions as $instruction)
-                                    <li>{{$instruction->text}}</li>
-                                    @endforeach
-                                </ul>
+                                <ol class="instructions">
+                                    {!!$preparation->instructions!!}
+                                </ol>
                             </div>
                         </div>
                         @endforeach

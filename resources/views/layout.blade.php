@@ -31,7 +31,7 @@
         <a href='/' target='_self'><div id='logo'>Logo</div></a>
         <div id='topMenu'>
             <input id='topMenuSearchBar' name='topMenuSearchbar' value='Rechercher'>
-            <a href='/user' target='_self'><button id='userAccountButton'><i class="fas fa-user"></i><span>Se connecter</span></button></a>
+            <a href='/home' target='_self'><button id='userAccountButton'><i class="fas fa-user"></i><span>Se connecter</span></button></a>
             <button id='completeMenuButton'><i class="fas fa-bars"></i></button>
         </div>
         <nav id='bottomMenu'>
@@ -71,15 +71,23 @@
     
 </div>
 
-<!--
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
--->
-
+<!-- Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<!-- TinyMCE -->
+<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+<!--<script>tinymce.init({selector: '#mytextarea'});</script>-->
+<script>tinymce.init({
+  selector: '#mytextarea',
+  branding: false,
+  statusbar: false,
+  height: 500,
+  menubar: false,
+  toolbar: 'undo redo |  formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | removeformat'
+});</script>
+
 
 </body>
 </html>

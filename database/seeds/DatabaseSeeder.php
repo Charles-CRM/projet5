@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,7 +17,6 @@ class DatabaseSeeder extends Seeder
         $users = factory(App\User::class, 5)->create();
         $recipes = factory(App\Recipe::class, 30)->create();
         $preparations = factory(App\Preparation::class, 70)->create();
-        $instructions = factory(App\Instruction::class, 175)->create();
         $photos = factory(App\Photo::class, 90)->create();
         $comments = factory(App\Comment::class, 200)->create();
         $flavours = factory(App\Flavour::class, 25)->create();
@@ -25,6 +25,10 @@ class DatabaseSeeder extends Seeder
         $recipe_tag = factory(App\RecipeTag::class, 50)->create();
         $ingredients = factory(App\Ingredient::class, 25)->create();
         $ingredient_preparation = factory(App\IngredientPreparation::class, 300)->create();
+        
+        
+        
+        DB::table('users')->insert(['name' => 'SimpleUtilisateur', 'email' => 'simpleadressemail@mail.com', 'password' => bcrypt('SimpleMotDePasse')]);
         
     }
 }

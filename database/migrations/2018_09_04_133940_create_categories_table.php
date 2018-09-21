@@ -20,7 +20,7 @@ class CreateCategoriesTable extends Migration
         });
         
         Schema::table('recipes', function(Blueprint $table){
-            $table->integer('category_id')->unsigned()->index();
+            $table->integer('category_id')->unsigned()->index()->default(0);
         });
     }
 
