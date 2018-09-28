@@ -23,7 +23,8 @@ class CreateRecipesTable extends Migration
             $table->unsignedSmallInteger('preparation_time')->default(0);
             $table->unsignedSmallInteger('rest_time')->default(0);
             $table->unsignedSmallInteger('cooking_time')->default(0);
-            $table->boolean('is_published')->default(0);
+            // ATTENTION : is_published n'est mis par défaut à 1 que pour les essais.
+            $table->boolean('is_published')->default(1);
             $table->timestamps();
         });
     }
